@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Einladung</title>
+
+<style>
+body {
+  background:#f2efe9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family: Georgia, serif;
+}
+
+.card-container {
+  perspective: 1200px;
+}
+
+.card {
+  width: 340px;
+  height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  cursor: pointer;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.side {
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.front img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hint {
+  position:absolute;
+  bottom:8px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-size:14px;
+  background:rgba(0,0,0,0.4);
+  padding:4px 0;
+}
+
+.back {
+  background:#fff7ec;
+  transform: rotateY(180deg);
+  padding:14px;
+  box-sizing:border-box;
+  overflow-y:auto;
+}
+
+.back h2 {
+  text-align:center;
+  margin-top:0;
+}
+
+.back p {
+  text-align:center;
+  font-size:14px;
+}
+
+.buttons {
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+button {
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  font-size:14px;
+  cursor:pointer;
+  background:#8b5e3c;
+  color:white;
+}
+
+button.secondary {
+  background:#555;
+}
+
+.extra {
+  display:none;
+  margin-top:8px;
+}
+
+.extra button {
+  background:#b07a4a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card-container">
+  <div class="card" onclick="flipCard()">
+    
+    <!-- VORDERSEITE -->
+    <div class="side front">
+      <img src="vorderseite.jpg" alt="Einladung">
+      <div class="hint">Tippe, um die Einladung umzudrehen</div>
+    </div>
+
+    <!-- RÜCKSEITE -->
+    <div class="side back" onclick="event.stopPropagation()">
+      <h2>Herzliche Einladung</h2>
+
+      <p>
+        Wir sind jetzt zusammen <b>100 Jahre</b><br>
+        und möchten das mit euch<br>
+        bei <b>Musik und Tanz</b> gemeinsam feiern.
+      </p>
+
+      <p>
+        📅 <b>21. März 2026</b><br>
+        ⏰ <b>19:00 Uhr</b><br>
+        📍 bei uns zu Hause im neuen Stadel
+      </p>
+
+      <p>
+        Rückmeldung bitte bis zum <b>8. März</b>
+      </p>
+
+      <p>
+        <i>
+        Wenn ihr euch fragt, was sollen wir nur schenken –<br>
+        wir wünschen uns nur Geld, um mit euch zu feiern,<br>
+        die tollste Party der Welt.
+        </i>
+      </p>
+
+      <div class="buttons">
+        <button onclick="showExtra()">Wir kommen gern</button>
+        <button class="secondary" onclick="absage()">Wir können leider nicht</button>
+      </div>
+
+      <div class="extra" id="extra">
+        <button onclick="zusage('Salat')">Ich bringe einen Salat mit</button>
+        <button onclick="zusage('Nachspeise')">Ich bringe eine Nachspeise mit</button>
+      </div>
+
+      <p><b>Wir freuen uns auf euch<br>Petra und Christian</b></p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function flipCard() {
+  document.querySelector('.card').classList.toggle('flipped');
+}
+
+function showExtra() {
+  document.getElementById('extra').style.display = 'block';
+}
+
+function zusage(beitrag) {
+  window.location.href =
+  "https://wa.me/491713837755?text=" +
+  encodeURIComponent(
+    "Hallo Petra und Christian, wir kommen gerne zu eurer Feier 😊 Ich bringe eine " + beitrag + " mit."
+  );
+}
+
+function absage() {
+  window.location.href =
+  "https://wa.me/491234567890?text=" +
+  encodeURIComponent(
+    "Hallo Petra und Christian, leider können wir am 21. März nicht dabei sein."
+  );
+}
+</script>
+
+</body>
+</html>
