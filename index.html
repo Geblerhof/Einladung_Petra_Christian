@@ -154,10 +154,10 @@ button.secondary {
       </div>
 
       <div class="extra" id="extra">
-        <button onclick="zusage('Salat')">Ich bringe einen Salat mit</button>
-        <button onclick="zusage('Nachspeise')">Ich bringe eine Nachspeise mit</button>
-        <button onclick="zusage('Nichts')">Ich kann leider Nichts mitbringen</button>
-      </div>
+  <button onclick="zusage('Salat')">Ich bringe einen Salat mit</button>
+  <button onclick="zusage('Nachspeise')">Ich bringe eine Nachspeise mit</button>
+  <button onclick="zusage('nichts')">Ich kann leider nichts mitbringen</button>
+</div>
 
       <p><b>Wir freuen uns auf euch<br>Petra und Christian</b></p>
     </div>
@@ -175,11 +175,20 @@ function showExtra() {
 }
 
 function zusage(beitrag) {
+  let text = "Hallo Petra und Christian, wir kommen gerne zu eurer Feier 😊";
+
+  if (beitrag === "Salat") {
+    text += " Ich bringe einen Salat mit.";
+  } 
+  else if (beitrag === "Nachspeise") {
+    text += " Ich bringe eine Nachspeise mit.";
+  } 
+  else {
+    text += " Ich kann leider nichts mitbringen.";
+  }
+
   window.location.href =
-  "https://wa.me/491713837755?text=" +
-  encodeURIComponent(
-    "Hallo Petra und Christian, wir kommen gerne zu eurer Feier 😊 Ich bringe eine " + beitrag + " mit."
-  );
+    "https://wa.me/491234567890?text=" + encodeURIComponent(text);
 }
 
 function absage() {
@@ -193,5 +202,6 @@ function absage() {
 
 </body>
 </html>
+
 
 
