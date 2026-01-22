@@ -153,10 +153,10 @@ button.secondary {
         <button class="secondary" onclick="absage()">Wir können leider nicht</button>
       </div>
 
-      <div class="extra" id="extra">
-  <button onclick="zusage('Salat')">Ich bringe einen Salat mit</button>
-  <button onclick="zusage('Nachspeise')">Ich bringe eine Nachspeise mit</button>
-  <button onclick="zusage('nichts')">Ich kann leider nichts mitbringen</button>
+    <div class="extra" id="extra">
+  <button onclick="zusageSalat()">Ich bringe einen Salat mit</button>
+  <button onclick="zusageNachspeise()">Ich bringe eine Nachspeise mit</button>
+  <button onclick="zusageNichts()">Ich kann leider nichts mitbringen</button>
 </div>
 
       <p><b>Wir freuen uns auf euch<br>Petra und Christian</b></p>
@@ -175,16 +175,30 @@ function showExtra() {
 }
 
 function zusage(beitrag) {
-  let text = "Hallo Petra und Christian, wir kommen gerne zu eurer Feier 😊";
+  let text = "Hallo Petra und Christian, wir kommen gerne zu eurer Feier";
 
-  if (beitrag === "salat") {
-    text += " Ich bringe einen Salat mit.";
-  } 
-  else if (beitrag === "nachspeise") {
-    text += " Ich bringe eine Nachspeise mit.";
-  } 
-  else if (beitrag === "nichts") {
-    text += " Ich kann leider nichts mitbringen.";
+ function zusageSalat() {
+  window.location.href =
+    "https://wa.me/491234567890?text=" +
+    encodeURIComponent(
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich bringe einen Salat mit."
+    );
+}
+
+function zusageNachspeise() {
+  window.location.href =
+    "https://wa.me/491234567890?text=" +
+    encodeURIComponent(
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich bringe eine Nachspeise mit."
+    );
+}
+
+function zusageNichts() {
+  window.location.href =
+    "https://wa.me/491234567890?text=" +
+    encodeURIComponent(
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich kann leider nichts mitbringen."
+    );
   }
 
   window.location.href =
@@ -202,6 +216,7 @@ function absage() {
 
 </body>
 </html>
+
 
 
 
