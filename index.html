@@ -169,7 +169,7 @@ button.secondary {
       <p>
         <i>
         Wenn ihr euch fragt, was sollen wir nur schenken –<br>
-        wir wünschen uns nur ein bisschen Geld, <br> um mit euch zu feiern,<br>
+        wir wünschen uns nur ein bisschen Geld,<br>um mit euch zu feiern,<br>
         die tollste Party der Welt.
         </i>
       </p>
@@ -233,18 +233,23 @@ function absage() {
     "Hallo Petra und Christian, leider können wir am 21. März nicht dabei sein."
   );
 }
-  const backSide = document.querySelector(".side.back");
-  const scrollHint = document.getElementById("scrollHint");
+    const scrollHint = document.getElementById("scrollHint");
 
-  if (backSide && scrollHint) {
-    backSide.addEventListener("scroll", function () {
-      scrollHint.classList.add("scroll-hint-hidden");
-    }, { once: true });
+  if (scrollHint) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        scrollHint.classList.add("scroll-hint-hidden");
+      },
+      { once: true }
+    );
   }
+  
 </script>
 
 </body>
 </html>
+
 
 
 
