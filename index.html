@@ -168,7 +168,7 @@ button.secondary {
 
       <p>
         <i>
-        Wenn ihr euch fragt, was sollen wir nur schenken –<br>
+        Wenn ihr euch fragt,<br>was sollen wir nur schenken... <br>
         wir wünschen uns nur ein bisschen Geld,<br>um mit euch zu feiern,<br>
         die tollste Party der Welt.
         </i>
@@ -205,7 +205,7 @@ function zusageSalat() {
   window.location.href =
     "https://wa.me/491713837755?text=" +
     encodeURIComponent(
-      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich bringe einen Salat mit."
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier und bringen einen Salat mit."
     );
 }
 
@@ -213,7 +213,7 @@ function zusageNachspeise() {
   window.location.href =
     "https://wa.me/491713837755?text=" +
     encodeURIComponent(
-      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich bringe eine Nachspeise mit."
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier und bringen eine Nachspeise mit."
     );
 }
 
@@ -221,7 +221,7 @@ function zusageNichts() {
   window.location.href =
     "https://wa.me/491713837755?text=" +
     encodeURIComponent(
-      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier. Ich kann leider nichts mitbringen."
+      "Hallo Petra und Christian, wir kommen gerne zu eurer Feier und können leider aber nichts mitbringen."
     );
 }
 
@@ -233,22 +233,13 @@ function absage() {
     "Hallo Petra und Christian, leider können wir am 21. März nicht dabei sein."
   );
 }
-    const scrollHint = document.getElementById("scrollHint");
-
-  if (scrollHint) {
-    window.addEventListener(
-      "scroll",
-      function () {
-        scrollHint.classList.add("scroll-hint-hidden");
-      },
-      { once: true }
-    );
-  }
+   
   
 </script>
 
 </body>
 </html>
+
 
 
 
